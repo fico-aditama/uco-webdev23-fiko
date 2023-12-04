@@ -4,3 +4,16 @@
   git branch -M main
   git remote add origin git@github.com:fico-aditama/uco-webdev23-fiko.git
   git push -u origin main
+
+
+php artisan make:controller HomeController
+php artisan make:controller ArticleController
+
+# sesi 3
+# https://elearn.uc.ac.id/mod/assign/view.php?id=340692
+git init
+git add .
+git commit -m "sesi-3"
+git checkout -b "sesi-3"
+git remote add origin https://github.com/cameronmcnz/example-website.git
+git push -u -f origin master
