@@ -102,8 +102,14 @@
                                                 <h3>{{ $article['title'] }}</h3>
                                             </div>
                                             <div class="solu_description">
+                                                {{-- <p class="ArticleBody">{{ substr(strip_tags($article['content']), 0, 50) }}
+
+                                                    @if (strlen(strip_tags($article['content'])) > 50)
+                                                    .. <a href="{{ $article['content'] }}" class="btn btn-info">Read More</a>
+                                                    @endif
+                                                </p>
+ --}}
                                                 <p>{{ $article['content'] }}</p>
-                                                <p>{{ $article['title'] }}</p>
                                                 <button type="button" class="read_more_btn">Read More</button>
                                             </div>
                                         </div>
