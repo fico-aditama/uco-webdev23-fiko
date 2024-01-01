@@ -1,0 +1,83 @@
+  git init
+  git add README.md
+  git commit -m "first commit"
+  git branch -M main
+  git remote add origin git@github.com:fico-aditama/uco-webdev23-fiko.git
+  git push -u origin main
+
+
+php artisan make:controller HomeController
+php artisan make:controller ArticleController
+
+git checkout -b sesi-4
+git add .
+git commit -m "sesi-4 changes".
+git remote add origin git@github.com:fico-aditama/uco-webdev23-fiko.git
+git push origin sesi-4
+
+
+# Membuat file blade
+# Memanfaatkan blade directives
+# Instalasi / memanfaatkan bootstrap untuk mempercantik halaman web
+# Membuat atau mengimplementasikan Blade Component
+
+
+
+php artisan make:controller create_articles_table
+php artisan make:migration add_phone_and_role_to_users
+php artisan make:migration change_phone_in_users
+php artisan make:migration add_slug_to_articles
+
+php artisan migrate
+php artisan migrate:rollback
+php artisan migrate:fresh
+
+git checkout -b sesi-5
+git add .
+git commit -m "sesi-5 changes".
+git remote add origin git@github.com:fico-aditama/uco-webdev23-fiko.git
+git push origin sesi-5
+
+php artisan make:model Article
+php artisan make:model ArticleComment --migration --controller
+
+php artisan make:model ArticleCategoryController
+php artisan make:model ArticleCategoryController --migration --controller
+
+
+php artisan make:model ArticleComment --migration
+
+
+==========
+git config --global user.name "Fiko"
+git config --global user.email "fikoaditama114@gmail.com"
+
+
+
+git checkout -b sesi-7
+git add .
+git commit -m "Sesi 7 - Relationship, Custom Attribute, dan Collection - changes".
+git remote add origin git@github.com:fico-aditama/uco-webdev23-fiko.git
+git push origin sesi-7
+
+============
+php artisan make:seeder ArticleCategorySeeder
+php artisan db:seed
+php artisan migrate:fresh --seed
+php artisan migrate:fresh --seed --seeder=ArticleCategorySeeder
+php artisan tinker
+Article::factory()->count(1000)->create();
+composer dump
+
+php artisan make:seeder ArticleSeeder
+php artisan db:seed --class=ArticleSeeder 
+
+php artisan make:factory ArticleCommentFactory
+php artisan migrate:fresh --seed --seeder=ArticleSeeder
+
+
+git checkout -b sesi-8
+git add .
+git commit -m "Sesi 8 - Seeding, Factory, dan Faker - changes".
+git remote add origin git@github.com:fico-aditama/uco-webdev23-fiko.git
+git push origin sesi-8
