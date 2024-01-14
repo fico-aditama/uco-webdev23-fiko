@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Str;
+use Illuminate\Validation\Rule;
 
 use App\Models\Article;
 use App\Models\ArticleComment;
@@ -33,9 +34,22 @@ class ArticleController extends Controller
             //     'date' => date('Y-m-d H:i:s')
             // ]);
 
-            // Database
+            $articleCategories = ArticleCategory::orderBy('name')->get();
+            if ($request->isMethod('post')) {
+                $request->validate([
+                    'title' => ['required', 'string', 'max:255', Rule::unique('articles')],
+                    'content' => ['required', 'string', 'max:2000'],
+                    'article_category_id' => ['required', 'integer', Rule::in($articleCategories->pluck('id'))],
+                ]);
+                $slug = Str::slug($request->title);
+                if (Article::where('slug', $slug)->exists()) {
+                    $slug .= '-' . uniqid();
+                }
+            }
+
             $article = Article::create([
-                'slug' => Str::slug($request->title),
+                // 'slug' => Str::slug($request->title),
+                'slug' => $slug,
                 'title' => $request->title,
                 'content' => $request->content,
                 'article_category_id' => $request->article_category_id,
@@ -51,7 +65,7 @@ class ArticleController extends Controller
                 ->withErrors(['alert' => 'Gagal menyimpan artikel']);
         }
         return view('article.form', [
-            'article_categories' => ArticleCategory::orderBy('name')->get()
+            'article_categories' => $articleCategories,
         ]);
     }
 
@@ -86,11 +100,19 @@ class ArticleController extends Controller
     {
         $article = Article::where('id', $id)->first();
 
+        $articleCategories = ArticleCategory::orderBy('name')->get();
+
         if (!$article) {
             return abort(404);
         }
 
         if ($request->isMethod('post')) {
+            $request->validate([
+                'slug' => ['required', 'string', Rule::unique('articles')->ignore($article->id)],
+                'title' => ['required', 'string', 'max:255', Rule::unique('articles')->ignore($article->$id)],
+                'content' => ['required', 'string', 'max:2000'],
+                'article_category_id' => ['required', 'integer', Rule::in($articleCategories->pluck('id'))],
+            ]);
             $article->slug = $request->slug;
             $article->title = $request->title;
             $article->content = $request->content;
@@ -102,40 +124,43 @@ class ArticleController extends Controller
                 return redirect()
                     ->route('article.single', ['slug' => $article->slug])
                     ->withSuccess('Artikel berhasil diubah');
-                }
-
-                return back()
-                    ->withInput()
-                    ->withErrors(['alert' => 'Gagal menyimpan artikel'
-                ]);
             }
 
-            return view('article.form', [
-                'article' => $article,
-                'article_categories' => ArticleCategory::orderBy('name')->get()
-            ]);
+            return back()
+                ->withInput()
+                ->withErrors(['alert' => 'Gagal menyimpan artikel']);
+        }
+
+        return view('article.form', [
+            'article' => $article,
+            'article_categories' => $articleCategories,
+        ]);
     }
     function comment(string $id, Request $request)
     {
         $article = Article::where('id', $id)->first();
 
-        if (!$article) return abort(404);
+        if (!$article) {
+            return abort(404);
+        }
+        $request->validate([
+            'comment' => ['required', 'string', 'max:2000'],
+        ]);
 
         $comment = ArticleComment::create([
             'article_id' => $article->id,
-            'content' => $request->comment
+            'content' => $request->comment,
         ]);
 
-        if ($comment){
-            return redirect()->route('article.single', ['slug' => $article->slug])
+        if ($comment) {
+            return redirect()
+                ->route('article.single', ['slug' => $article->slug])
                 ->withSucess('Komentar berhasil ditambahkan');
         }
-        return back()->withInput()
+        return back()
+            ->withInput()
             ->withErrors([
-                'message'=> 'Gagal menambahkan komentar'
+                'message' => 'Gagal menambahkan komentar',
             ]);
     }
-
 }
-
-

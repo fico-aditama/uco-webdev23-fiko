@@ -81,3 +81,9 @@ git add .
 git commit -m "Sesi 8 - Seeding, Factory, dan Faker - changes".
 git remote add origin git@github.com:fico-aditama/uco-webdev23-fiko.git
 git push origin sesi-8
+
+git checkout -b sesi-9
+git add .
+git commit -m "Sesi 9 - Form dan Validation".
+git remote add origin git@github.com:fico-aditama/uco-webdev23-fiko.git
+git push origin sesi-9
