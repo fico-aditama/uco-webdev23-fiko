@@ -96,3 +96,21 @@ git push origin sesi-10
 
 php artisan make:seeder UserSeeder
 php artisan migrate:fresh --seed --seeder=UserSeeder
+
+cd /home/fadi/zero_tech/uco-webdev23-fiko
+
+# Default github account: fico-vn
+Host github.com
+   HostName github.com
+   IdentityFile /home/fadi/id_rsa
+   IdentitiesOnly yes
+   
+# Other github account: fico
+Host github-fico
+   HostName github.com
+   IdentityFile /home/fadi/id_rsa_multi
+   IdentitiesOnly 
+   
+ssh-add /home/fadi/id_rsa
+ssh-add /home/fadi/id_rsa_multi
+

@@ -53,9 +53,18 @@ Route::controller(\App\Http\Controllers\UserController::class)
         Route::post('/users/{id}/delete', 'delete')->name('user.delete');
     });
 
-Route::match(['get', 'post'], '/login', [\App\Http\Controllers\LoginController::class, 'form'])
+
+    Route::match(['get', 'post'], '/login', [\App\Http\Controllers\LoginController::class, 'form'])
     ->middleware('guest')
     ->name('login');
+
+Route::match(['get', 'post'], '/login/email', [\App\Http\Controllers\LoginController::class, 'formEmail'])
+    ->middleware('guest')
+    ->name('login.email');
+
+Route::match(['get', 'post'], '/login/phone', [\App\Http\Controllers\LoginController::class, 'formPhone'])
+    ->middleware('guest')
+    ->name('login.phone');
 // Route::post('/login', [\App\Http\Controllers\LoginController::class, 'authenticate'])
 //     ->name('login')
 //     ->middleware('guest');
