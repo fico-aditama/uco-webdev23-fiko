@@ -8,6 +8,7 @@
                     <th>Nama</th>
                     <th>Email</th>
                     <th>Role</th>
+                    <th>Phone</th>
                     <th style="width:50px"></th>
                 </tr>
             </thead>
@@ -17,6 +18,7 @@
                     <td>{{ $user->name }}</td>
                     <td>{{ $user->email }}</td>
                     <td>{{ $user->role->name }}</td>
+                    <td>{{ $user->phone }}</td>
                     <td>
                         <a href="{{ route('user.edit', ['id' => $user->id]) }}" class="btn btn-info">Ubah</a>
                     </td>

@@ -94,4 +94,5 @@ git commit -m "Sesi 10 - Authentication dan Middleware".
 git remote add origin git@github.com:fico-aditama/uco-webdev23-fiko.git
 git push origin sesi-10
 
-git add . && git commit -m "Your commit message here" && git push origin branch_name
+php artisan make:seeder UserSeeder
+php artisan migrate:fresh --seed --seeder=UserSeeder

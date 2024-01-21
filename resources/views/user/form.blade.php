@@ -8,6 +8,9 @@
             <x-form.group for="email" label="Email">
                 <input type="email" name="email" id="email" class="form-control" value="{{ old('email') ?? $user->email ?? '' }}" required>
             </x-form.group>
+            <x-form.group for="phone" label="Phone">
+                <input type="phone" name="phone" id="phone" class="form-control" value="{{ old('phone') ?? $user->phone ?? '' }}" required>
+            </x-form.group>
             <x-form.group for="role" label="Role">
                 <select name="role" id="role" class="form-select" required>
                     <option value="" selected disabled>Pilih role</option>

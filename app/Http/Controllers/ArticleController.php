@@ -26,6 +26,7 @@ class ArticleController extends Controller
     }
     function create(Request $request)
     {
+        $articleCategories = ArticleCategory::orderBy('name')->get();
         if ($request->isMethod('post')) {
             // Session
             // $request->session()->push('articles',[
@@ -34,7 +35,6 @@ class ArticleController extends Controller
             //     'date' => date('Y-m-d H:i:s')
             // ]);
 
-            $articleCategories = ArticleCategory::orderBy('name')->get();
             if ($request->isMethod('post')) {
                 $request->validate([
                     'title' => ['required', 'string', 'max:255', Rule::unique('articles')],
