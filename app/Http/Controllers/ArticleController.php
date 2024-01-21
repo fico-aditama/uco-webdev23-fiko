@@ -109,7 +109,7 @@ class ArticleController extends Controller
         if ($request->isMethod('post')) {
             $request->validate([
                 'slug' => ['required', 'string', Rule::unique('articles')->ignore($article->id)],
-                'title' => ['required', 'string', 'max:255', Rule::unique('articles')->ignore($article->$id)],
+                'title' => ['required', 'string', 'max:100', Rule::unique('articles')->ignore($article->$id)],
                 'content' => ['required', 'string', 'max:2000'],
                 'article_category_id' => ['required', 'integer', Rule::in($articleCategories->pluck('id'))],
             ]);
