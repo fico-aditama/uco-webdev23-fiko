@@ -51,7 +51,7 @@ class LoginController extends Controller
                 ->withErrors([
                     'alert' => 'Nomor yang Anda berikan tidak cocok atau akun belum terdaftar.',
                 ])
-                ->only('phone');
+                ->onlyInput('phone');
         }
 
         return view('login/form');
