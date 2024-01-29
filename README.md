@@ -44,7 +44,7 @@ Objectives
             Membuat fitur logout
             Memanfaatkan middleware untuk sistem authorization sederhana
 
-[ SESI 10 ]Custom Middleware dan Authorization
+[ SESI 11 ]Custom Middleware dan Authorization
             Membuat middlewre dan memahami struktur middleware
             Membuat middleware dengan parameter
             Memahami authorization
