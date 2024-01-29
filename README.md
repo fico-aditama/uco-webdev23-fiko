@@ -3,7 +3,7 @@
 This is a simple PHP script that allows users to manage articles, including creating, viewing, editing, and deleting articles. It also allows users to comment on articles.
 
 
-# Objectives
+## Objectives
 
 ### [SESI 1] Setup dan Instalasi Laravel, Git, VSCode, dan Github
 
