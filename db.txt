@@ -65,6 +65,8 @@ php artisan make:seeder ArticleCategorySeeder
 php artisan db:seed
 php artisan migrate:fresh --seed
 php artisan migrate:fresh --seed --seeder=ArticleCategorySeeder
+php artisan db:seed --class=ArticleCategorySeeder 
+
 php artisan tinker
 Article::factory()->count(1000)->create();
 composer dump

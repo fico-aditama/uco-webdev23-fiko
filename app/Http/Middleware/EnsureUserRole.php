@@ -2,7 +2,6 @@
 
 namespace App\Http\Middleware;
 
-
 use App\Enums\UserRoleEnum;
 use Closure;
 use Illuminate\Http\Request;
@@ -15,9 +14,13 @@ class EnsureUserRole
      *
      * @param  \Closure(\Illuminate\Http\Request): (\Symfony\Component\HttpFoundation\Response)  $next
      */
-    public function handle(Request $request, Closure $next, $role): Response
+    public function handle(Request $request, Closure $next, ...$roles): Response
     {
-        if (!in_array($request->user()->role->value != $roles)) return abort(403);
+        // Check if the user's role is in the array of allowed roles
+        if (!in_array($request->user()->role->value, $roles)) {
+            return abort(403);
+        }
+
         return $next($request);
     }
 }

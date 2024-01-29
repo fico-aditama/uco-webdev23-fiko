@@ -1,7 +1,7 @@
 <?php
 
 namespace App\Providers;
-
+use App\Enums\UserRoleEnum;
 use Illuminate\Support\Facades\Gate;
 use Illuminate\Foundation\Support\Providers\AuthServiceProvider as ServiceProvider;
 
