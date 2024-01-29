@@ -1,6 +1,7 @@
 <?php
 
 namespace App\Http\Controllers;
+use Illuminate\Support\Facades\Gate;
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Str;
@@ -134,7 +135,7 @@ class ArticleController extends Controller
         return view('article.form', [
             'article' => $article,
             'article_categories' => $articleCategories,
-            'allow_edit_slug' => Gate::allow('isAdmin')
+            'allow_edit_slug' => Gate::allows('isAdmin')
         ]);
     }
     function comment(string $id, Request $request)

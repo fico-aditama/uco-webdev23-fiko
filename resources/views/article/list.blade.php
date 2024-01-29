@@ -7,7 +7,7 @@
             </div>
         @endif
         <div class="d-flex justify-content-end">
-            @if (count($articles) < 100)
+            @if (count($articles) < 10)
                 @canany(['isAdmin', 'isAuthor'])
                     <button type="button" class="btn btn-success"
                         onclick="window.location='{{ route('article.create') }}';">

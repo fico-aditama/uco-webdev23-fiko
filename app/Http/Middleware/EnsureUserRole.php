@@ -14,13 +14,12 @@ class EnsureUserRole
      *
      * @param  \Closure(\Illuminate\Http\Request): (\Symfony\Component\HttpFoundation\Response)  $next
      */
-    public function handle(Request $request, Closure $next, ...$roles): Response
+    public function handle(Request $request, Closure $next, ...$allowedRoles): Response
     {
-        // Check if the user's role is in the array of allowed roles
-        if (!in_array($request->user()->role->value, $roles)) {
+        if (!in_array($request->user()->role->value, $allowedRoles)) {
             return abort(403);
         }
-
+    
         return $next($request);
     }
 }

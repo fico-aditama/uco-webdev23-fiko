@@ -27,5 +27,6 @@ class AuthServiceProvider extends ServiceProvider
         Gate::define('isAuthor', function ($user) {
             return $user->role->value === UserRoleEnum::Author;
         });
+        
     }
 }
