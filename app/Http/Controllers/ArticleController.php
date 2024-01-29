@@ -134,6 +134,7 @@ class ArticleController extends Controller
         return view('article.form', [
             'article' => $article,
             'article_categories' => $articleCategories,
+            'allow_edit_slug' => Gate::allow('isAdmin')
         ]);
     }
     function comment(string $id, Request $request)

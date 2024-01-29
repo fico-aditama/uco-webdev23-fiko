@@ -17,6 +17,8 @@ class ArticleCategoryController extends Controller
     }
     function create(Request $request)
     {
+        $articleCategories = $request->articleCategories;
+
         if ($request->isMethod('post')) {
             // Database
             $category = ArticleCategory::create([
@@ -61,6 +63,8 @@ class ArticleCategoryController extends Controller
         if (!$category) {
             return abort(404);
         }
+
+        $articleCategories = $request->articleCategories;
 
         if ($request->isMethod('post')) {
             $category->name = $request->name;

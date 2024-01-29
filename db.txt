@@ -114,3 +114,26 @@ Host github-fico
 ssh-add /home/fadi/id_rsa
 ssh-add /home/fadi/id_rsa_multi
 
+
+## Sesi 11
+php artisan make:middleware EnsureArticleCategoryExists
+php artisan make:middleware EnsureUserRole
+
+git checkout -b sesi-11
+git add .
+git commit -m "Sesi 11 - Custom Middleware dan Authorization".
+git remote add origin git@github.com:fico-aditama/uco-webdev23-fiko.git
+git push origin sesi-11
+
+
+
+
+
+
+## Uco kelompok
+git checkout -b webdev_ui
+git add .
+git commit -m "Penambahan UI Login, Register dan Home".
+git remote add origin git@github.com:Joepyroj/uco-tugaswebdev.git
+git push origin webdev_ui
+
