@@ -2,54 +2,57 @@
 
 This is a simple PHP script that allows users to manage articles, including creating, viewing, editing, and deleting articles. It also allows users to comment on articles.
 
-Objectives
-[ SESI 1 ] Setup dan Instalasi Laravel, Git, VSCode dan Github
 
-[ SESI 2 ] Mengenal MVC dan Laravel
+# Objectives
 
-[ SESI 3 ] Routing, Controller dan View
+## [SESI 1] Setup dan Instalasi Laravel, Git, VSCode, dan Github
 
-[ SESI 4 ] Blade Template dan Bootstrap
+## [SESI 2] Mengenal MVC dan Laravel
 
-[ SESI 5 ] Database Migration
-            Mengenal struktur migration
-            Membuat migration untuk membuat tabel
-            Mendefinisikan tabel dalam migration dan mengenal jenis-jenis kolom tabel
-            Menjalankan migration
-[ SESI 6 ] Blade Template dan Bootstrap
-            Membuat model
-            Menambahkan data
-            Mengubah data
-            Menghapus data
-            Mengambil data
-[ SESI 7 ] Relationship, Custom Attribute, dan Collection
-            Mengenal jenis relasi (one to one, one to many)
-            Memanfaatkan fungsi Laravel untuk merelasikan satu model dengan model lain
-            Menambahkan custom attribute di model
-            Memanfaatkan beberapa fungsi dalam Collection
+## [SESI 3] Routing, Controller, dan View
 
-[ SESI 8 ] Seeding, Factory, dan Faker
-            Membuat dan menjalankan seeder
-            Memanfaatkan faker untuk membuat data dummy
-            Membuat dan memanfaatkan factory untuk melakukan generate data dengan cepat
+## [SESI 4] Blade Template dan Bootstrap
 
-[ SESI 9 ] Form Validation
-            Meningkatkan keamanan form dengan validasi
-            Memanfaatkan fitur validasi pada inputan
-            Menampilkan pesan validasi
+## [SESI 5] Database Migration
+- Mengenal struktur migration
+- Membuat migration untuk membuat tabel
+- Mendefinisikan tabel dalam migration dan mengenal jenis-jenis kolom tabel
+- Menjalankan migration
 
-[ SESI 10 ]Authentication dan Middleware
-            Membuat Sistem autentikasi ( login )
-            Mengakses data user yang sedang login
-            Membuat fitur logout
-            Memanfaatkan middleware untuk sistem authorization sederhana
+## [SESI 6] Model, CRUD, dan Eloquent
+- Membuat model
+- Menambahkan data
+- Mengubah data
+- Menghapus data
+- Mengambil data
 
-[ SESI 11 ]Custom Middleware dan Authorization
-            Membuat middlewre dan memahami struktur middleware
-            Membuat middleware dengan parameter
-            Memahami authorization
-            Menggunakan gates untuk authorization
+## [SESI 7] Relationship, Custom Attribute, dan Collection
+- Mengenal jenis relasi (one-to-one, one-to-many)
+- Memanfaatkan fungsi Laravel untuk merelasikan satu model dengan model lain
+- Menambahkan custom attribute di model
+- Memanfaatkan beberapa fungsi dalam Collection
 
+## [SESI 8] Seeding, Factory, dan Faker
+- Membuat dan menjalankan seeder
+- Memanfaatkan faker untuk membuat data dummy
+- Membuat dan memanfaatkan factory untuk melakukan generate data dengan cepat
+
+## [SESI 9] Form Validation
+- Meningkatkan keamanan form dengan validasi
+- Memanfaatkan fitur validasi pada inputan
+- Menampilkan pesan validasi
+
+## [SESI 10] Authentication dan Middleware
+- Membuat sistem autentikasi (login)
+- Mengakses data user yang sedang login
+- Membuat fitur logout
+- Memanfaatkan middleware untuk sistem authorization sederhana
+
+## [SESI 11] Custom Middleware dan Authorization
+- Membuat middleware dan memahami struktur middleware
+- Membuat middleware dengan parameter
+- Memahami authorization
+- Menggunakan gates untuk authorization
 
 ## Prerequisites
 
