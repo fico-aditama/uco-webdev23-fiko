@@ -11,8 +11,11 @@ class UserController extends Controller
 {
     function list(Request $request)
     {
-        $users = User::get();
-
+        // $users = User::get();
+        $users = Article::where(function($query) use ($request) {
+            $query->where('title', 'like', '%'.$request->search.'%')
+            ->orWhere('content', 'like', '%'.$request->search.'%');
+            })->paginate(20)->withQueryString();
         return view('user.list', [
             'users' => $users
         ]);

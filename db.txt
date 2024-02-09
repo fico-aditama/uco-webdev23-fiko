@@ -128,7 +128,12 @@ git remote add origin git@github.com:fico-aditama/uco-webdev23-fiko.git
 git push origin sesi-11
 
 
-
+## Sesi 12
+git checkout -b sesi-12
+git add .
+git commit -m "Sesi 12 - Pagination dan upload file".
+git remote add origin git@github.com:fico-aditama/uco-webdev23-fiko.git
+git push origin sesi-12
 
 
 
@@ -139,3 +144,5 @@ git commit -m "Penambahan UI Login, Register dan Home".
 git remote add origin git@github.com:Joepyroj/uco-tugaswebdev.git
 git push origin webdev_ui
 
+
+php artisan key:generate

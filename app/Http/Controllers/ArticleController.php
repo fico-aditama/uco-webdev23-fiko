@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 use Illuminate\Support\Facades\Gate;
+use Illuminate\Support\Facades\Storage;
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Str;
@@ -19,7 +20,9 @@ class ArticleController extends Controller
         // return view('article.list', [
         //     'articles' => $articles,
         // ]);
-        $articles = Article::get();
+        // $articles = Article::get();
+        $articles = Article::paginate(20);
+        // $articles = Article::simplePaginate(15);
 
         return view('article.list', [
             'articles' => $articles,
@@ -57,6 +60,12 @@ class ArticleController extends Controller
             ]);
 
             if ($article) {
+                if ($request->file('image')) {
+                    $path = $request->file('image')->store('articles');
+                    $article->image = $path;
+                    $article->save();
+                    }
+
                 return redirect()
                     ->route('article.list')
                     ->withSuccess('Artikel berhasil dibuat');
@@ -86,6 +95,11 @@ class ArticleController extends Controller
             return abort(404);
         }
         if ($article->delete()) {
+
+            if ($image) {
+                Storage::delete($image);
+            }
+
             return redirect()
                 ->route('article.list')
                 ->withSuccess('Artikel telah dihapus');

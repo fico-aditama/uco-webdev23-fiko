@@ -29,7 +29,10 @@
                     @endforeach
                 </select>
             </x-form.group>
-
+            <x-form.group for="image" label="Gambar">
+                <input type="file" name="image" accept="image/*" id="image"
+                class="form-control">
+            </x-form.group>
             <div class="mb-3"><button type="submit" class="btn btn-primary">Simpan</button></div>
         </form>
     </div>
