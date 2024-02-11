@@ -14,10 +14,10 @@ class ArticleSeeder extends Seeder
      */
     public function run(): void
     {
-        Article::factory()->count(100)
-            ->longerContent(20)
+        Article::factory()->count(5)
+            ->longerContent(5)
             ->slugFromTitle()
-            ->has(ArticleComment::factory()->count(20), 'comments')
+            ->has(ArticleComment::factory()->count(10), 'comments')
             ->create();
     }
 }

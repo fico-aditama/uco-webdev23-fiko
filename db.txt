@@ -136,6 +136,20 @@ git remote add origin git@github.com:fico-aditama/uco-webdev23-fiko.git
 git push origin sesi-12
 
 
+## Sesi 13
+php artisan make:mail ArticlePosted
+git checkout -b sesi-13
+git add .
+git commit -m "Sesi 13 - Email".
+git remote add origin git@github.com:fico-aditama/uco-webdev23-fiko.git
+git push origin sesi-13
+
+
+
+
+
+
+
 
 ## Uco kelompok
 git checkout -b webdev_ui
