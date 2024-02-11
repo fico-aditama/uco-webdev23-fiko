@@ -144,7 +144,17 @@ git commit -m "Sesi 13 - Email".
 git remote add origin git@github.com:fico-aditama/uco-webdev23-fiko.git
 git push origin sesi-13
 
+## Sesi 14
+php artisan make:controller NotificationController
+php artisan queue:table
+php artisan migrate
+https://mailtrap.io/home
 
+git checkout -b sesi-14
+git add .
+git commit -m "Sesi 14 - Nofication dan Queue".
+git remote add origin git@github.com:fico-aditama/uco-webdev23-fiko.git
+git push origin sesi-14
 
 
 

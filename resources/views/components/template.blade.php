@@ -259,9 +259,21 @@
                     <li class="nav-item">
                         <a class="nav-link" href="{{ route('article_category.list') }}">Kategori Artikel</a>
                     </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="{{ route('user.list') }}">User</a>
+                    </li>
                 </ul>
             </div>
-
+            @auth
+                <li class="nav-item">
+                    <a class="nav-link" href="<?= route('notification.list') ?>">
+                        Notifikasi
+                        @if (auth()->user()->unreadNotifications->isNotEmpty())
+                            <span class="badge text-bg-danger">{{ auth()->user()->unreadNotifications->count() }}</span>
+                        @endif
+                    </a>
+                </li>
+            @endauth
             @auth
                 <div class="dropdown">
                     <button class="btn dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">

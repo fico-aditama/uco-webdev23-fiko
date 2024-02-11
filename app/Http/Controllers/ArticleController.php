@@ -13,6 +13,7 @@ use App\Models\Article;
 use App\Models\ArticleComment;
 use App\Models\ArticleCategory;
 use App\Models\User;
+use Illuminate\Support\Facades\Notification;
 
 class ArticleController extends Controller
 {
@@ -181,6 +182,13 @@ class ArticleController extends Controller
         ]);
 
         if ($comment) {
+
+            $authors = User::where('role', \App\Enums\UserRoleEnum::Author)->get();
+            Notification::send($authors, new \App\Notifications\ArticleCommented($comment));
+
+            // Mengirimkan notifikasi ke user yang sedang login (penulis komentar)
+            $request->user()->notify(new \App\Notifications\ArticleCommented($comment));
+
             return redirect()
                 ->route('article.single', ['slug' => $article->slug])
                 ->withSucess('Komentar berhasil ditambahkan');
